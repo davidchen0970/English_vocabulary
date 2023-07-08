@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>英文單字小幫手</title>
+
+</head>
+
+<body>
+    <h1>英文單字小幫手</h1>
+    <div id="result"></div>
+    <!-- <input type="button" value="按我" class="btn"> -->
+    <input type="button" value="按我" onclick="getItem();" class="btn">
+
+    <input type="file" id="excelFile" accept=".xlsx, .xls">
+    <button onclick="readExcel()">读取</button>
+
+    <script>
+        var el = document.querySelector(".btn");
+        function getRandom(x) {
+            return Math.floor(Math.random() * x);
+        };
+        function readExcel() {
+            var fileInput = document.getElementById('excelFile');
+            var file = fileInput.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                var data = new Uint8Array(e.target.result);
+                var workbook = XLSX.read(data, { type: 'array' });
+
+                workbook.SheetNames.forEach(function (sheetName) {
+                    var worksheet = workbook.Sheets[sheetName];
+                    var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+                    localStorage.setItem(sheetName, JSON.stringify(jsonData));
+                });
+
+                console.log('Excel 文件已读取并存储到 localStorage 中。');
+            };
+
+            reader.readAsArrayBuffer(file);
+        }
+
+        function getItem() {
+            // 檢查瀏覽器是否支援 LocalStorage
+            if (typeof (Storage) !== "undefined") {
+                // 讀取 LocalStorage 中的指定 key
+                var level = ["1級", "2級", "3級", "4級", "5級", "6級"];
+                var randomNum = getRandom(6);
+                var value = localStorage.getItem(level[randomNum]);
+
+                if (value !== null) {
+                    // 將字串轉換為陣列
+                    var arrayValue = JSON.parse(value);
+                    var randomNum = getRandom(arrayValue.length);
+                    // alert(arrayValue[randomNum][0]);
+                    document.getElementById("result").innerHTML = arrayValue[randomNum][0];
+
+                } else {
+                    document.getElementById("result").innerHTML = "找不到指定的值";
+                    readExcel();
+                }
+
+            } else {
+                document.getElementById("result").innerHTML = "抱歉，你的瀏覽器不支援 LocalStorage";
+            }
+        }
+        // el.onclick = getItem();
+
+        getItem();
+    </script>
+</body>
+
+</html>

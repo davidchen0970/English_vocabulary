@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>英文單字小幫手</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="./script.js"></script>
+</head>
+
+<body>
+    <h1>英文單字小幫手</h1>
+    <div class="main_block">
+        <p id="result"></p>
+        <p id="chinese_vacu"></p>
+    </div>
+    <div class="buttons">
+        <button class="btn-f">忘記了</button>
+        <button class="btn-s">還可以</button>
+        <button class="btn-r">我記得!</button>
+        <input type="button" value="隨機選一個" onclick="getItem();" class="btn-a">
+    </div>
+</body>
+
+</html>
+<!-- TODO : 加上朗讀，改案件太小的問題，加上等級  -->

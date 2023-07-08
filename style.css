@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    max-width: 30vw;
+}
+
+.btn-f {
+
+    padding: 10px 20px;
+    font-size: 1.5vw;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+    background-color: #d11d1d;
+    width: 20vw;
+}
+
+.btn-s {
+    padding: 10px 20px;
+    font-size: 1.5vw;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+    background-color: #f5de12;
+    color: black;
+    width: 20vw;
+}
+
+.btn-r {
+    padding: 10px 20px;
+    font-size: 1.5vw;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    width: 20vw;
+}
+
+.btn-a {
+    padding: 10px 20px;
+    font-size: 1.5vw;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+    background-color: #c5891a;
+    width: 35vw;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.main_block{
+    display: table;
+    height: 75vh;
+    width: 100%;
+    text-align: center;
+}
+
+.main_block > #result {
+    margin: 0 0 0 0 ;
+    background-color: #fff;
+    padding: 20px 20px 0 20px;
+    border-radius: 4px 4px 0px 0px;
+    /* 左上 右上 右下 左下 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 4.5vh;
+    height: 40%;
+    
+}
+
+.main_block > #chinese_vacu {
+    margin:  0 0 20px 0 ;
+    background-color: #d4d4d4;
+    padding: 20px 20px 20px 20px;
+    border-radius:  0px 0px 4px 4px;
+    /* 左上 右上 右下 左下 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 3.2vh;
+
+}
+
+
+.buttons {
+    position: fixed;
+    bottom: 2vh;
+
+}
